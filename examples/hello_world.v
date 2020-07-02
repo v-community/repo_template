@@ -1,5 +1,5 @@
 import repo_template
 
 fn main() {
-	println(hello())
+	println(repo_template.hello())
 }
