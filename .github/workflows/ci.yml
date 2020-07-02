@@ -1,0 +1,73 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout V
+      uses: actions/checkout@v2
+      with:
+        repository: vlang/v
+    - name: Checkout repo_template
+      uses: actions/checkout@v2
+      with:
+        path: vlib/repo_template
+    - name: Build V
+      run: |
+        make
+        sudo ./v symlink
+      run: |
+        cd ./vlib/repo_template/
+        v test tests/hello_test.v
+    - name: Run Examples
+      run: |
+        cd ./vlib/repo_template/
+        v run examples/hello-world.v
+
+  macos:
+    runs-on: macos-latest
+    steps:
+    - name: Checkout V
+      uses: actions/checkout@v2
+      with:
+        repository: vlang/v
+    - name: Checkout repo_template
+      uses: actions/checkout@v2
+      with:
+        path: vlib/repo_template
+    - name: Build V
+      run: |
+        make
+        ./v symlink
+    - name: Run Tests
+      run: |
+        cd ./vlib/repo_template/
+        v test tests/hello_test.v
+    - name: Run Examples
+      run: |
+        cd ./vlib/repo_template/
+        v run examples/hello_world.v
+
+
+  windows-msvc:
+    runs-on: windows-latest
+    env:
+        VFLAGS: -cc msvc
+    steps:
+    - name: Checkout V
+      uses: actions/checkout@v2
+      with:
+        repository: vlang/v
+    - name: Checkout repo_template
+      uses: actions/checkout@v2
+      with:
+        path: vlib/repo_template
+    - name: Build V
+      run: .\make.bat -msvc -skip-path
+    # Don't move applying V directory to PATH, to other steps
+    - name: Run Tests
+      run: .\v.exe test .\vlib\repo_template\tests\hello_test.v
+    - name: Run Examples
+      run: .\v.exe run .\vlib.\repo_template\examples\hello_world.v
