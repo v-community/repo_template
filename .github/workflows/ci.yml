@@ -18,13 +18,14 @@ jobs:
       run: |
         make
         sudo ./v symlink
+    - name: Run Tests
       run: |
         cd ./vlib/repo_template/
         v test tests/hello_test.v
     - name: Run Examples
       run: |
         cd ./vlib/repo_template/
-        v run examples/hello-world.v
+        v run examples/hello_world.v
 
   macos:
     runs-on: macos-latest
