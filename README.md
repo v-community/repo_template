@@ -1,6 +1,6 @@
 # V Repo Template
 
-Template for [V](vlang.io) Repos
+Template for [V](https://github.com/vlang/v) Repos
 
 ![CI](https://github.com/v-community/repo_template/workflows/CI/badge.svg?branch=master)
 ![GitHub Release](https://img.shields.io/github/release/v-community/repo_template.svg)
