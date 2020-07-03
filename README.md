@@ -5,6 +5,10 @@ Template for [V](vlang.io) Repos
 ![CI](https://github.com/v-community/repo_template/workflows/CI/badge.svg?branch=master)
 ![GitHub Release](https://img.shields.io/github/release/v-community/repo_template.svg)
 
+## Purpose
+
+This repo template tries to solve the complexity behind creating V repos as many people don't how to make one or people are lazy.
+
 ## Overview
 
 - `Makefile` for formatting files, running examples and tests
@@ -13,7 +17,7 @@ Template for [V](vlang.io) Repos
 - `MIT` License for Repo (though you can change the license)
 - A `.gitignore` made for V
 - `ISSUE_TEMPLATE`, `CODE_OF_CONDUCT` etc written
-- More features coming soon...
+- More things coming soon...
 
 ## Installation
 
@@ -23,8 +27,11 @@ git clone https://github.com/v-community/repo_template
 
 ## Acknowledgments
 
-Thanks to [moul/golang-template](https://github.com/moul/golang-repo-template) for his `ISSUE_TEMPLATE` and other things written by him and inspiring me to do this project!
-
+Thanks to [moul/golang-template](https://github.com/moul/golang-repo-template) for his `ISSUE_TEMPLATE` and other things written by him and inspiration.
 ## License
 
 Licensed under [MIT](LICENSE)
+
+## Contributing
+
+Contribution is welcome. Please read [Code of Conduct](.github/CODE_OF_CONDUCT.md).
