@@ -25,6 +25,10 @@ This repo template tries to solve the complexity behind creating V repos as many
 git clone https://github.com/v-community/repo_template
 ```
 
+## Use a docker container for development
+
+Please read [docker.md](Docker.md)
+
 ## Acknowledgments
 
 Thanks to [moul/golang-template](https://github.com/moul/golang-repo-template) for his `ISSUE_TEMPLATE` and other things written by him and inspiration.
