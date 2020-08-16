@@ -7,21 +7,21 @@ on:
 jobs:  
  test:
   name: Run tests on ${{ matrix.os }} ${{ matrix.v-version }}
-strategy:
-    matrix:
+  strategy:
+      matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        v-version: latest
-    runs-on: ${{ matrix.os }}
-     runs:
+        v-version: [master, latest]
+  runs-on: ${{ matrix.os }}
+  steps:
       - uses: actions/checkout@v1
       - uses: nocturlab/setup-vlang-action@master
         with:
-          v-version: ${{ matrix.v-version }}
-      - name: Run tests
-        run: v test tests/hello_test.v
+          v-version: master
       - name: Run vet
         run: v vet .
-      - name: Run examples
+      - name: Run Examples
         run: v run examples/hello_world.v
+      - name: Run tests
+        run: v test tests/hello_test.v
       - name: vfmt verify
         run: v fmt -verify *.v
