@@ -19,9 +19,16 @@ jobs:
           v-version: master
       - name: Run vet
         run: v vet .
-      - name: Run Examples
-        run: v run examples/hello_world.v
+      - name: Run examples
+        run: |
+          cp hello.v examples/
+          v run examples/hello_world.v
+          rm hello.v
       - name: Run tests
-        run: v test tests/hello_test.v
+        run: |
+          cp hello.v tests/
+          v test tests/hello_test.v
+          rm hello.v
       - name: vfmt verify
-        run: v fmt -verify *.v
+        run: |
+          v fmt -verify *.v
