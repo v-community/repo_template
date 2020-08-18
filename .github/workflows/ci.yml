@@ -9,7 +9,7 @@ jobs:
   name: Run tests on ${{ matrix.os }} ${{ matrix.v-version }}
   strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        os: [ubuntu-latest, macos-latest, windows-latest]
         v-version: [master, latest]
   runs-on: ${{ matrix.os }}
   steps:
@@ -22,4 +22,4 @@ jobs:
       - name: Run tests
         run: v test .
       - name: vfmt verify
-        run: v fmt -verify *.v
+        run: v fmt -verify -diff *.v
